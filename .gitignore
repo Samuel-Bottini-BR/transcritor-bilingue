@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+build/
+dist/
+release/
+installer_output/
+
+# Modelos baixados - o programa baixa sozinho na primeira execucao
+modelos/

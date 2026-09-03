@@ -1,0 +1,31 @@
+1
+00:00:00,024 --> 00:00:04,024
+[EN] Good evening. I did not expect to find you here tonight.
+
+2
+00:00:05,592 --> 00:00:09,592
+[IT] Buonasera signora, che sorpresa vederla di nuovo in questo posto
+
+3
+00:00:10,712 --> 00:00:15,336
+[EN] The boat leaves at dawn. We should be ready before the sun rises.
+
+4
+00:00:16,760 --> 00:00:20,760
+[IT] Il mare sta notte e calmo, ma domani potrebbe cambiare tutto.
+
+5
+00:00:22,456 --> 00:00:25,736
+[EN] I have waited for this moment far longer than you can imagine.
+
+6
+00:00:27,224 --> 00:00:30,760
+[IT] Non ho mai visto un tramonto così bello in tutta la mia vita.
+
+7
+00:00:31,640 --> 00:00:34,920
+[EN] Tell me the truth, once and for all, before it is too late.
+
+8
+00:00:36,472 --> 00:00:40,472
+[IT] Ti prometto che ritornerò prima della fine dell'estate, amore mio.

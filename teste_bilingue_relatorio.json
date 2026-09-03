@@ -1,0 +1,94 @@
+{
+  "info": {
+    "device": "cuda",
+    "compute_type": "float16",
+    "modelo": "C:\\Users\\fotog\\transcritor-bilingue\\modelos\\small",
+    "duracao_s": 42.064,
+    "blocos": 8,
+    "aceitos": 8,
+    "descartados": 0
+  },
+  "aceitos": [
+    {
+      "ini": 0.024,
+      "fim": 4.024,
+      "texto": "Good evening. I did not expect to find you here tonight.",
+      "idioma": "en",
+      "conf_idioma": 1.0,
+      "idioma_herdado": false,
+      "logprob": -0.239,
+      "no_speech": 0.005
+    },
+    {
+      "ini": 5.592,
+      "fim": 9.591999999999999,
+      "texto": "Buonasera signora, che sorpresa vederla di nuovo in questo posto",
+      "idioma": "it",
+      "conf_idioma": 0.995,
+      "idioma_herdado": false,
+      "logprob": -0.199,
+      "no_speech": 0.018
+    },
+    {
+      "ini": 10.712,
+      "fim": 15.336,
+      "texto": "The boat leaves at dawn. We should be ready before the sun rises.",
+      "idioma": "en",
+      "conf_idioma": 1.0,
+      "idioma_herdado": false,
+      "logprob": -0.262,
+      "no_speech": 0.014
+    },
+    {
+      "ini": 16.76,
+      "fim": 20.76,
+      "texto": "Il mare sta notte e calmo, ma domani potrebbe cambiare tutto.",
+      "idioma": "it",
+      "conf_idioma": 0.997,
+      "idioma_herdado": false,
+      "logprob": -0.169,
+      "no_speech": 0.032
+    },
+    {
+      "ini": 22.456,
+      "fim": 25.736,
+      "texto": "I have waited for this moment far longer than you can imagine.",
+      "idioma": "en",
+      "conf_idioma": 1.0,
+      "idioma_herdado": false,
+      "logprob": -0.24,
+      "no_speech": 0.002
+    },
+    {
+      "ini": 27.224,
+      "fim": 30.76,
+      "texto": "Non ho mai visto un tramonto così bello in tutta la mia vita.",
+      "idioma": "it",
+      "conf_idioma": 0.997,
+      "idioma_herdado": false,
+      "logprob": -0.237,
+      "no_speech": 0.004
+    },
+    {
+      "ini": 31.64,
+      "fim": 34.92,
+      "texto": "Tell me the truth, once and for all, before it is too late.",
+      "idioma": "en",
+      "conf_idioma": 1.0,
+      "idioma_herdado": false,
+      "logprob": -0.242,
+      "no_speech": 0.003
+    },
+    {
+      "ini": 36.472,
+      "fim": 40.472,
+      "texto": "Ti prometto che ritornerò prima della fine dell'estate, amore mio.",
+      "idioma": "it",
+      "conf_idioma": 0.998,
+      "idioma_herdado": false,
+      "logprob": -0.247,
+      "no_speech": 0.017
+    }
+  ],
+  "descartados": []
+}
