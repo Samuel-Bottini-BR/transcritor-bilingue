@@ -6,9 +6,10 @@ CapCut ou TurboScribe. Caso de uso original: um filme de 1950 (Stromboli)
 com inglês e italiano alternando dezenas de vezes. Ver `README.md` para uso
 e detalhes técnicos (pipeline, empacotamento, decisões fechadas).
 
-**Handoff:** `README.md` é a referência principal — não há um handoff
-separado ainda. Se este projeto crescer, considerar um `HANDOFF.md`
-próprio; até lá, atualizar o README quando o Samuel pedir explicitamente.
+**Handoff:** `HANDOFF.md` é a referência de contexto de sessão (estado
+atual, pendências, decisões recentes). `README.md` é a documentação do
+app (uso, pipeline técnico, build/empacotamento). Atualizar cada um só
+quando o Samuel pedir explicitamente.
 
 Decisões fechadas: Python + PySide6 (não sugerir alternativa); Windows só;
 UI e comentários em pt-BR; não empacotar os pesos do modelo (baixam na 1ª

@@ -10,45 +10,6 @@ outros respondem em italiano, alternando dezenas de vezes.
 
 ---
 
-## Estado atual (handoff — 2026-09-07)
-
-**Bug corrigido nesta sessão:** o painel de idiomas tinha um "padrão" fixo
-(Inglês+Italiano) usado sempre que um item novo era adicionado à fila. Se o
-usuário escolhesse o idioma *antes* de o item aparecer na lista (ex.: colar
-um link e clicar em "Português" enquanto ainda resolvia), a escolha era
-descartada silenciosamente assim que o item surgia com os idiomas padrão —
-foi assim que o Samuel reparou (marcou Português, o app ignorou e foi de
-Inglês/Italiano mesmo assim).
-
-Corrigido em `app.py` (`PainelTrabalho.mostrar` / `_recolher_mesmo` +
-`MainWindow._selecionou`/`__init__`): agora, quando nada está selecionado na
-fila, o painel mostra e edita `self.padrao` diretamente (título "Padrão para
-novos itens"), em vez de travar a edição com "Nada selecionado". A escolha
-de idioma passa a valer de verdade para os próximos itens adicionados.
-**Commitado e no push** — ver `git log`.
-
-**Testado:** rodei o motor via `--cli` no arquivo real do Samuel (~4h50 de
-áudio, mp3 128kbps,
-`C:\Users\fotog\Downloads\YTDown.com_YouTube_Media_MzMM5iV3GcU_009_128k.mp3`)
-com `--idiomas pt`. A identificação de idioma completou 100% corretamente e
-a transcrição começou (chegou a 1%) antes do processo precisar ser
-encerrado — o motor funciona bem no arquivo real, GPU disponível (GTX 1650),
-estimativa de ~1h para o arquivo inteiro com qualidade Grande. **Não** foi
-possível validar o fluxo completo pela GUI: os processos em segundo plano
-que o Claude usa para abrir o app têm um limite de tempo curto e são
-encerrados no meio — não é bug do app, é limitação do ambiente do Claude.
-
-**Pendente:** o Samuel roda a transcrição completa desse arquivo ele mesmo,
-direto no terminal dele (fora do controle do Claude), para (1) confirmar
-visualmente que a correção do idioma padrão funciona na prática e (2)
-deixar terminar o processamento sem ser interrompido:
-```powershell
-cd "C:\Users\fotog\transcritor-bilingue"
-.\.venv\Scripts\python.exe app.py
-```
-
----
-
 ## Como usar (usuário final)
 
 1. Abra o **Transcritor Bilíngue** pelo menu Iniciar.
