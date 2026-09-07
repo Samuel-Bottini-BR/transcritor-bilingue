@@ -14,13 +14,14 @@ para uso, pipeline técnico e detalhes de empacotamento.
 
 **Local do projeto mudou nesta sessão:** de `C:\Users\fotog\transcritor-bilingue`
 para `D:\programas\transcritor-bilingue` (HD externo), a pedido do Samuel.
-A cópia em C: ainda existe, mas fica obsoleta — apagar depois que o Samuel
-confirmar que o app abre e funciona normalmente a partir de D:. O `.venv`
-não foi copiado (não é portável entre unidades); foi recriado do zero em D:
-com `py -3.14 -m venv .venv` e as dependências reinstaladas. Um `_extras-area-de-trabalho/`
-antigo (testes do Stromboli original + um script prototype de página única,
-`transcritor_bilingue.py`, anterior à divisão em app.py/motor.py/fila.py)
-foi preservado dentro da pasta nova — não está no git, é só histórico.
+A cópia antiga em C: foi apagada depois de verificar a nova (compila, GPU
+detectada, `test_filtro.py`/`test_legendar.py`/`test_fila.py` passando). O
+`.venv` não foi copiado (não é portável entre unidades); foi recriado do
+zero em D: com `py -3.14 -m venv .venv` e as dependências reinstaladas. Um
+`_extras-area-de-trabalho/` antigo (testes do Stromboli original + um
+script prototype de página única, `transcritor_bilingue.py`, anterior à
+divisão em app.py/motor.py/fila.py) foi preservado dentro da pasta nova —
+não está no git, é só histórico.
 
 **Bug corrigido nesta sessão:** o painel de idiomas tinha um "padrão" fixo
 (Inglês+Italiano) usado sempre que um item novo era adicionado à fila. Se o
@@ -62,9 +63,6 @@ encerrados no meio — não é bug do app, é limitação do ambiente do Claude.
 
 ## O que falta
 
-- Samuel confirmar que o app abre e roda normalmente a partir de D:.
-- Depois dessa confirmação, apagar a cópia antiga em
-  `C:\Users\fotog\transcritor-bilingue`.
 - Samuel rodar a transcrição completa do arquivo de teste (~4h50) ele
   mesmo, direto no terminal (fora do controle do Claude), para validar o
   fluxo completo pela GUI de ponta a ponta — inclusive confirmar
