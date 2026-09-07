@@ -443,6 +443,7 @@ class PainelTrabalho(QWidget):
         self.cfg = cfg
         self.tem_gpu = tem_gpu
         self.t = None
+        self._e_padrao = False
         self._carregando = False
 
         fora = QVBoxLayout(self)
@@ -568,15 +569,23 @@ class PainelTrabalho(QWidget):
 
     # -- ligacao com o Trabalho ---------------------------------------
 
-    def mostrar(self, t):
+    def mostrar(self, t, e_padrao=False):
         self.t = t
+        self._e_padrao = e_padrao
         self._carregando = True
         if t is None:
             self.titulo.setText("Nada selecionado")
             self.meta.setText("Adicione um arquivo ou cole um link acima.")
             self._carregando = False
             return
-        self.titulo.setText(t.titulo or os.path.basename(t.origem))
+        if e_padrao:
+            self.titulo.setText("Padrao para novos itens")
+            self.meta.setText("Ajuste aqui antes de adicionar um arquivo ou "
+                              "link — vale para os proximos itens da fila.")
+        else:
+            self.titulo.setText(t.titulo or os.path.basename(t.origem))
+        self.cab_saida.setVisible(not e_padrao)
+        self.lista_saida.setVisible(not e_padrao)
         self.e1.setVisible(t.e_url)
         self.e1.definir_ligado(t.baixar_ligado)
         self.midia.setCurrentIndex(1 if t.baixar_video else 0)
@@ -650,19 +659,24 @@ class PainelTrabalho(QWidget):
                 "Sem ffmpeg no computador: o video vem no formato ja pronto, "
                 "que no YouTube costuma parar em 720p.")
 
-        mins = estimar_min(t.duracao_s, t.modelo, self.tem_gpu)
-        est = texto_estimativa(mins)
-        partes = [texto_duracao(t.duracao_s)] if t.duracao_s else []
-        if t.playlist:
-            partes.append(f"playlist {t.playlist}")
-        if est and t.transcrever_ligado:
-            partes.append(f"transcricao {est}")
-        partes.append("GPU" if self.tem_gpu else "CPU - pode demorar horas")
-        self.meta.setText("  ·  ".join(partes))
+        if not self._e_padrao:
+            mins = estimar_min(t.duracao_s, t.modelo, self.tem_gpu)
+            est = texto_estimativa(mins)
+            partes = [texto_duracao(t.duracao_s)] if t.duracao_s else []
+            if t.playlist:
+                partes.append(f"playlist {t.playlist}")
+            if est and t.transcrever_ligado:
+                partes.append(f"transcricao {est}")
+            partes.append("GPU" if self.tem_gpu else "CPU - pode demorar horas")
+            self.meta.setText("  ·  ".join(partes))
 
         for cod, nome, dica in MODELOS:
             if cod == t.modelo:
                 self.dica_q.setText(dica)
+
+        if self._e_padrao:
+            self.mudou.emit()
+            return
 
         prev = t.arquivos_previstos(self.cfg)
         self.cab_saida.setText(
@@ -866,7 +880,7 @@ class Janela(QMainWindow):
         self.setStyleSheet(ESTILO)
         self._avisar_gpu()
         self._atualizar_resumo()
-        self.painel.mostrar(None)
+        self.painel.mostrar(self.padrao, e_padrao=True)
 
     # -- config -------------------------------------------------------
 
@@ -1041,8 +1055,10 @@ class Janela(QMainWindow):
         if self.btn_pastas.isChecked():
             self.btn_pastas.setChecked(False)
             self.mesa.setCurrentWidget(self.painel)
-        self.painel.mostrar(self.trabalhos[i] if 0 <= i < len(self.trabalhos)
-                            else None)
+        if 0 <= i < len(self.trabalhos):
+            self.painel.mostrar(self.trabalhos[i])
+        else:
+            self.painel.mostrar(self.padrao, e_padrao=True)
 
     def _atualizar_linha_atual(self):
         if self.painel.t is None:
