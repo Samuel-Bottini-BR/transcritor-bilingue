@@ -107,9 +107,7 @@ no 3.14.3), placa NVIDIA opcional para GPU.
 # ambiente
 py -3.14 -m venv .venv
 .\.venv\Scripts\python -m pip install -U pip
-.\.venv\Scripts\python -m pip install faster-whisper PySide6 pyinstaller `
-    yt-dlp tokenizers edge-tts soundfile numpy `
-    nvidia-cublas-cu12 nvidia-cudnn-cu12 nvidia-cuda-runtime-cu12
+.\.venv\Scripts\python -m pip install -r requirements.txt
 
 # testes que não precisam de GUI nem de rede
 .\.venv\Scripts\python test_filtro.py     # filtro de alucinação
